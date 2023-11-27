@@ -1,5 +1,5 @@
 
-void gaussianElimination(int rows, double matrix[rows][rows + 1])
+void gaussianElimination(unsigned int rows, double matrix[rows][rows + 1])
 {
 
 	double pivot = 0;
@@ -10,6 +10,8 @@ void gaussianElimination(int rows, double matrix[rows][rows + 1])
 		{
 
 			pivot = matrix[j][i] / matrix[i][i];
+
+			printf("Pivot = %f\n", pivot);
 
 			for (int k = 0; k < rows + 1; k++)
 			{
