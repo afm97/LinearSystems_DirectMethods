@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
-#include "zeros.h"
 #include "printMatrix.h"
 #include "gaussianElimination.h"
 #include "regressiveSubstitution.h"
