@@ -1,13 +1,13 @@
 
 void partialPivotingScale(unsigned originRow, unsigned int numberOfRows, double matrix[numberOfRows][numberOfRows + 1])
 {
-    double maxValueOfRow = maxValueOfLine(originRow, numberOfRows, matrix);
-    double valueIndexArraySuport[2] = {matrix[originRow][originRow] / maxValueOfRow, originRow};
+
+    double valueIndexArraySuport[2] = {matrix[originRow][originRow] / maxValueOfLine(originRow, numberOfRows, matrix), originRow};
     double currentValue;
 
-    for (unsigned int i = originRow + 1; i < numberOfRows; i++)
+    for (unsigned int i = originRow; i < numberOfRows; i++)
     {
-        currentValue = fabs(matrix[i][originRow]) / maxValueOfRow;
+        currentValue = fabs(matrix[i][originRow]) / maxValueOfLine(i, numberOfRows, matrix);
 
         if (currentValue > valueIndexArraySuport[0])
         {
