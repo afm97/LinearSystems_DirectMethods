@@ -2,32 +2,28 @@
 #include <stdlib.h>
 #include <math.h>
 #include "printMatrix.h"
+#include "printArray.h"
+#include "maxValuesOfMatrix.h"
 #include "gaussianElimination.h"
 #include "regressiveSubstitution.h"
 #include "rowExchanger.h"
-#include "maxValueOfLine.h"
 #include "partialPivotingScale.h"
 
 int main()
 {
 
-    double matrix[][5] = {{1.19, 2.11, -100, 1, 1.12},
-                          {14.2, -0.122, 12.2, -1, 3.44},
-                          {0, 100, -99, 1, 2.15},
-                          {15.3, 0.110, -13.1, -1, 4.16}};
+    double matrix[][4] = {{2.11, -4.21, 0.921, 2.01},
+                          {4.01, 10.2, -1.12, -3.09},
+                          {1.09, 0.987, 0.832, 4.21}};
 
-    // sol:{x1 = 0.716, x2 = 0.0126, x3 = -0.0206, x4 = -1.18}
+    // Sol: x1 = -0.431, x2 = 0.430, 5.12
 
     int rows = sizeof(matrix) / sizeof(matrix[0]);
     int cols = sizeof(matrix[0]) / sizeof(matrix[0][0]);
 
-    double solution[rows][1];
+    double solution[rows];
 
-    printMatrix(rows, cols, matrix);
     gaussianElimination(rows, matrix);
-    printf("---------------------------------------------------------------\n");
-    printMatrix(rows, cols, matrix);
     regressiveSubstitution(rows, matrix, solution);
-    printf("---------------------------------------------------------------\n");
-    printMatrix(rows, 1, solution);
+    printArray(rows, solution);
 }
