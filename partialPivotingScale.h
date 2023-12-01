@@ -15,6 +15,4 @@ void partialPivotingScale(unsigned originRow, unsigned int numberOfRows, double 
         }
     }
     rowExchanger(originRow, valueIndexArraySuport[1], numberOfRows, matrix);
-    printMatrix(numberOfRows, numberOfRows + 1, matrix);
-    printf("---------------------------------------------------------------\n");
 }
