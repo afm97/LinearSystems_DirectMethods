@@ -1,14 +1,13 @@
 
-void partialPivotingScale(unsigned originRow, unsigned int numberOfRows, double matrix[numberOfRows][numberOfRows + 1])
+void partialPivotingScale(unsigned originRow, unsigned int numberOfRows, double matrix[numberOfRows][numberOfRows + 1], double maxValuesOfMatrix[numberOfRows])
 {
 
-    double valueIndexArraySuport[2] = {matrix[originRow][originRow] / maxValueOfLine(originRow, numberOfRows, matrix), originRow};
+    double valueIndexArraySuport[2] = {matrix[originRow][originRow] / maxValuesOfMatrix[originRow], originRow};
     double currentValue;
 
-    for (unsigned int i = originRow; i < numberOfRows; i++)
+    for (unsigned int i = originRow + 1; i < numberOfRows; i++)
     {
-        currentValue = fabs(matrix[i][originRow]) / maxValueOfLine(i, numberOfRows, matrix);
-
+        currentValue = fabs(matrix[i][originRow]) / maxValuesOfMatrix[i];
         if (currentValue > valueIndexArraySuport[0])
         {
             valueIndexArraySuport[0] = currentValue;
@@ -16,4 +15,6 @@ void partialPivotingScale(unsigned originRow, unsigned int numberOfRows, double 
         }
     }
     rowExchanger(originRow, valueIndexArraySuport[1], numberOfRows, matrix);
+    printMatrix(numberOfRows, numberOfRows + 1, matrix);
+    printf("---------------------------------------------------------------\n");
 }
