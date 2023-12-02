@@ -2,7 +2,7 @@
 void partialPivotingScale(unsigned originRow, unsigned int numberOfRows, double matrix[numberOfRows][numberOfRows + 1], double maxValuesOfMatrix[numberOfRows])
 {
 
-    double valueIndexArraySuport[2] = {matrix[originRow][originRow] / maxValuesOfMatrix[originRow], originRow};
+    double valueIndexArraySuport[2] = {fabs(matrix[originRow][originRow]) / maxValuesOfMatrix[originRow], originRow};
     double currentValue;
 
     for (unsigned int i = originRow + 1; i < numberOfRows; i++)
